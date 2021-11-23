@@ -14,6 +14,10 @@ function App() {
     .then(res=> res.json())
     .then(bookData => setBooks(bookData))
   },[])
+  
+  function newBook(newBook){
+    setFacts([...books, newBook])
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -21,7 +25,7 @@ function App() {
         <p>
           <Header />
           <ReadingList books={books}/>
-          <ReadingForm />
+          <ReadingForm newBook={newBook}/>
         </p>
       </header>
     </div>
