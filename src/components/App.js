@@ -6,13 +6,21 @@ import './ReadingList';
 import './ReadingForm';
 
 function App() {
+  const [books,setBooks] = useState([]) 
+
+
+  useEffect(() => {
+    fetch('http://localhost:9292/books')
+    .then(res=> res.json())
+    .then(bookData => setBooks(bookData))
+  },[])
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           <Header />
-          <ReadingList />
+          <ReadingList books={books}/>
           <ReadingForm />
         </p>
       </header>
