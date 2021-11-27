@@ -17,12 +17,18 @@ function App() {
   function newBook(newBook){
     setBooks([...books, newBook])
   }
+
+  function onBookDelete(id) {
+    const updatedBooks = books.filter((book) => book.id !== id);
+    setBooks(updatedBooks);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <p>
           <Header />
-          <ReadingList books={books}/>
+          <ReadingList books={books} onBookDelete={onBookDelete}/>
           <ReadingForm newBook={newBook}/>
         </p>
       </header>
