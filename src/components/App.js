@@ -1,9 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './src/App.css';
-import './Header.js';
-import './ReadingList';
-import './ReadingForm';
+import React, { useEffect, useState } from 'react'
+import '../App.css';
+import Header from './Header.js';
+import ReadingList from './ReadingList';
+import ReadingForm from './ReadingForm';
 
 function App() {
   const [books,setBooks] = useState([]) 
@@ -16,12 +15,11 @@ function App() {
   },[])
   
   function newBook(newBook){
-    setFacts([...books, newBook])
+    setBooks([...books, newBook])
   }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           <Header />
           <ReadingList books={books}/>
