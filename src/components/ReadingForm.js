@@ -37,7 +37,7 @@ function handleGenreChange(e){
             <input className="inputField" type='text' value={name} onChange={handleNameChange} />
         </label></p>
         <p><label>
-            Author setName:
+            Author Name:
             <input className="inputField" type='text' value={author} onChange={handleAuthorChange} />
         </label></p>
         <p><label>
