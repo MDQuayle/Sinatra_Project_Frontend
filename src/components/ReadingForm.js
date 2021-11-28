@@ -2,21 +2,21 @@ import React from 'react';
 import {useState} from 'react'
 function ReadingForm({newBook}) {
     const [name, setName] = useState('')
-    const [authorID, setAuthorID] = useState('')
+    const [author, setAuthor] = useState('')
     const [genre, setGenre] = useState('')
     function handleSubmit(e){
         e.preventDefault()
         setName('')
-        setAuthorID('')
+        setAuthor('')
         setGenre('')
         fetch('http://localhost:9292/books',{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({name:name,author_id:authorID,genre:genre})
+            body: JSON.stringify({name:name,author:author,genre:genre})
         })
-        newBook({name:name,author_id:authorID,genre:genre})
+        newBook({name:name,author:author,genre:genre})
 
     }
 function handleNameChange(e){
@@ -24,7 +24,7 @@ function handleNameChange(e){
 }
 
 function handleAuthorChange(e){
-    setAuthorID(e.target.value)
+    setAuthor(e.target.value)
 }
 
 function handleGenreChange(e){
@@ -37,8 +37,8 @@ function handleGenreChange(e){
             <input className="inputField" type='text' value={name} onChange={handleNameChange} />
         </label></p>
         <p><label>
-            Author ID:
-            <input className="inputField" type='text' value={authorID} onChange={handleAuthorChange} />
+            Author setName:
+            <input className="inputField" type='text' value={author} onChange={handleAuthorChange} />
         </label></p>
         <p><label>
             Genre:

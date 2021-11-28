@@ -10,7 +10,7 @@ function BookCard({book, onBookDelete, id}) {
     return(
         <div>
             <h4>{book.name}</h4>
-            <p>Author: {book.author.name} ID: {book.author.id}</p>
+            <p>Author: {book.author.name}</p>
             <p>Genre: {book.genre}</p>
             <button onClick={handleDeleteClick}>Book Completed</button>
         </div>
