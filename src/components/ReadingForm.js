@@ -17,6 +17,7 @@ function ReadingForm({newBook}) {
             body: JSON.stringify({name:name,author:author,genre:genre})
         })
         newBook({name:name,author:author,genre:genre})
+        window.location.reload(false)
 
     }
 function handleNameChange(e){
