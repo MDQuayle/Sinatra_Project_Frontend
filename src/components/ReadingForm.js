@@ -14,19 +14,18 @@ function ReadingForm({newBook}) {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({name:name,author:author,genre:genre})
+            body: JSON.stringify({name:name, author:author, genre:genre})
         })
-        newBook({name:name,author:author,genre:genre})
-        window.location.reload(false)
-
+        .then(res => res.json())
+        .then((book) => newBook(book))
     }
+    
 function handleNameChange(e){
     setName(e.target.value)
 }
 
 function handleAuthorChange(e){
-    value = e.target.value.lower.trim
-    setAuthor(value)
+    setAuthor(e.target.value)
 }
 
 function handleGenreChange(e){
@@ -40,7 +39,13 @@ function handleGenreChange(e){
         </label></p>
         <p><label>
             Author Name:
-            <input className="inputField" type='text' value={author} onChange={handleAuthorChange} />
+        <select name="filter" onChange={handleAuthorChange}>
+          <option value=" ">AUTHORS</option>
+          <option value="Chuck Klosterman">Chuck Klosterman</option>
+          <option value="Kurt Vonnegut Jr.">Kurt Vonnegut Jr.</option>
+          <option value="Will Wight">Will Wight</option>
+          <option value="T.J. Klune">T.J. Klune</option>
+        </select>
         </label></p>
         <p><label>
             Genre:

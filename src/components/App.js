@@ -5,13 +5,13 @@ import ReadingList from './ReadingList';
 import ReadingForm from './ReadingForm';
 
 function App() {
-  const [books,setBooks] = useState([]) 
+  const [books, setBooks] = useState([]) 
 
 
   useEffect(() => {
     fetch('http://localhost:9292/books')
-    .then(res=> res.json())
-    .then(bookData => setBooks(bookData))
+      .then(res=> res.json())
+      .then(bookData => setBooks(bookData))
   },[])
   
   function newBook(newBook){
