@@ -25,7 +25,8 @@ function handleNameChange(e){
 }
 
 function handleAuthorChange(e){
-    setAuthor(e.target.value)
+    value = e.target.value.lower.trim
+    setAuthor(value)
 }
 
 function handleGenreChange(e){
